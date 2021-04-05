@@ -3,7 +3,8 @@
 Adding vectors\
 ```def vector_add(v, w)
    return[v_i + w_i
-          for v_i, w_i, in zip(v,w)]```
+          for v_i, w_i, in zip(v,w)]
+```
 
 
 
