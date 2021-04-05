@@ -8,6 +8,8 @@ Table of topics
 | CW10  | 2021/03/12 | [SAML vs oAuth](https://github.com/rafkruczkowski/journal/tree/main/2021/03/12/) |
 | CW11  | 2021/03/15 | [Kubernetes version 1.20](https://github.com/rafkruczkowski/journal/tree/main/2021/03/15/)          |
 | CW13  | 2021/04/01 | [Python Review](https://github.com/rafkruczkowski/journal/tree/main/2021/04/01/)          |
+| CW13  | 2021/04/02 | [Visualizing Data](https://github.com/rafkruczkowski/journal/tree/main/2021/04/02/)          |
+| CW14  | 2021/04/05 | [Linear Algebra](https://github.com/rafkruczkowski/journal/tree/main/2021/04/05/)          |
 
 ## Future Topics
 ---
