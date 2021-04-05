@@ -14,7 +14,7 @@ def vector_sum(vectors):
       results = vector_add(results, vector)
    return results
 ```
-
+Use maxtices when possible to represent data in tables
 
 
 ---
