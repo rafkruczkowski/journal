@@ -10,6 +10,7 @@ Table of topics
 | CW13  | 2021/04/01 | [Python Review](https://github.com/rafkruczkowski/journal/tree/main/2021/04/01/)          |
 | CW13  | 2021/04/02 | [Visualizing Data](https://github.com/rafkruczkowski/journal/tree/main/2021/04/02/)          |
 | CW14  | 2021/04/05 | [Linear Algebra](https://github.com/rafkruczkowski/journal/tree/main/2021/04/05/)          |
+| CW14  | 2021/04/06 | [Statistics and Probability](https://github.com/rafkruczkowski/journal/tree/main/2021/04/06/)          |
 
 ## Future Topics
 ---
