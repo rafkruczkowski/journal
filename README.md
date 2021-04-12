@@ -13,7 +13,7 @@ Table of topics
 | CW14  | 2021/04/06 | [Statistics and Probability](https://github.com/rafkruczkowski/journal/tree/main/2021/04/06/) |
 | CW14  | 2021/04/06 | [Bearing Calc](https://github.com/rafkruczkowski/journal/blob/main/2021/04/06/bearing.py) |
 | CW14  | 2021/04/08 | [Hypothesis and Inference + Gradient Descent](https://github.com/rafkruczkowski/journal/blob/main/2021/04/08/) |
-
+| CW15  | 2021/04/12 | [Chapters 3-5](https://github.com/rafkruczkowski/journal/blob/main/2021/04/12/) |
 
 ## Future Topics
 ---
