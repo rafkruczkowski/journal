@@ -15,6 +15,8 @@ Table of topics
 | CW14  | 2021/04/08 | [Hypothesis and Inference + Gradient Descent](https://github.com/rafkruczkowski/journal/blob/main/2021/04/08/) |
 | CW15  | 2021/04/12 | [Chapters 3-5](https://github.com/rafkruczkowski/journal/blob/main/2021/04/12/) |
 | CW15  | 2021/04/14 | [K-Means and Nural Networks](https://github.com/rafkruczkowski/journal/blob/main/2021/04/14/) |
+| CW15  | 2021/04/15 | [K-Nearest](https://github.com/rafkruczkowski/journal/blob/main/2021/04/15/) |
+| CW15  | 2021/04/16 | [Adversarial search](https://github.com/rafkruczkowski/journal/blob/main/2021/04/16/) |
 
 ## Future Topics
 ---
