@@ -17,6 +17,8 @@ Table of topics
 | CW15  | 2021/04/14 | [K-Means and Nural Networks](https://github.com/rafkruczkowski/journal/blob/main/2021/04/14/) |
 | CW15  | 2021/04/15 | [K-Nearest](https://github.com/rafkruczkowski/journal/blob/main/2021/04/15/) |
 | CW15  | 2021/04/16 | [Adversarial search](https://github.com/rafkruczkowski/journal/blob/main/2021/04/16/) |
+| CW16  | 2021/04/20 | [Linear Regression](https://github.com/rafkruczkowski/journal/blob/main/2021/04/20/) |
+| CW16  | 2021/04/21 | [Algos and Logistic Regression](https://github.com/rafkruczkowski/journal/blob/main/2021/04/21/) |
 
 ## Future Topics
 ---
