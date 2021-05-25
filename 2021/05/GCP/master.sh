@@ -26,10 +26,14 @@ kubeadm config images pull
 #Master node
 cd /root
 kubeadm init
-echo "export KUBECONFIG=/etc/kubernetes/admin.conf" > /root/export.txt
+export KUBECONFIG=/etc/kubernetes/admin.conf
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+# Helm and Istio
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 curl -L https://git.io/getLatestIstio | sh -
+export PATH="$PATH:/root/istio-1.10.0/bin"
+echo "export KUBECONFIG=/etc/kubernetes/admin.conf" > /root/export.txt
 echo "export PATH=\"$PATH:/root/istio-1.10.0/bin\"" >> /root/export.txt
-#istioctl install
+istioctl install --set profile=demo -y
+# Token for the nodes to join the cluster
 kubeadm token create --print-join-command > /root/join.txt
