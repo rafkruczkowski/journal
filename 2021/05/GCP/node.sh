@@ -1,4 +1,5 @@
 #GCP K8s Node bootstrap
+echo "Starting Node startup script" >> /root/status.txt
 swapoff -a
 systemctl stop firewalld
 systemctl disable firewalld
@@ -23,3 +24,11 @@ dnf install docker-ce --nobest -y
 systemctl start docker
 kubeadm config images pull
 echo "Node should be ready for Join command on master" >> /root/status.txt
+sleep 60
+echo "Sleeping for master to be ready" >> /root/status.txt
+sudo gsutil cp gs://kruczkowski-bucket/join.txt /root/join.txt
+echo "Join command copied from bucket" >> /root/status.txt
+sudo chmod +x /root/join.txt
+sudo ./root/join.txt
+echo "Join command should be running" >> /root/status.txt
+#end
