@@ -22,3 +22,4 @@ dnf install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/co
 dnf install docker-ce --nobest -y
 systemctl start docker
 kubeadm config images pull
+echo "Node should be ready for Join command on master" >> /root/status.txt

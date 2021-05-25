@@ -1,4 +1,5 @@
 #GCP K8s Node bootstrap
+echo "Starting startup script" >> /root/status.txt
 swapoff -a
 systemctl stop firewalld
 systemctl disable firewalld
@@ -22,18 +23,24 @@ dnf install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/co
 dnf install docker-ce --nobest -y
 systemctl start docker
 kubeadm config images pull
+echo "Ready to install Kubeadm" >> /root/status.txt
 
 #Master node
 cd /root
 kubeadm init
 export KUBECONFIG=/etc/kubernetes/admin.conf
+kubeadm token create --print-join-command > /root/join.txt
+
+echo "Join nodes with join.txt - or next steps will hang" >> /root/status.txt
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+
+echo "CNI should be installed next - Ready to install Helm and Istio" >> /root/status.txt
+
 # Helm and Istio
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 curl -L https://git.io/getLatestIstio | sh -
 export PATH="$PATH:/root/istio-1.10.0/bin"
 echo "export KUBECONFIG=/etc/kubernetes/admin.conf" > /root/export.txt
 echo "export PATH=\"$PATH:/root/istio-1.10.0/bin\"" >> /root/export.txt
+echo "Next to install Istio with Demo profile" >> /root/status.txt
 istioctl install --set profile=demo -y
-# Token for the nodes to join the cluster
-kubeadm token create --print-join-command > /root/join.txt
