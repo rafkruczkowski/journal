@@ -16,7 +16,8 @@ EOF
 
 sudo setenforce 0
 sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
-sudo yum install -y kubelet kubeadm kubectl jq tree --disableexcludes=kubernetes
+#sudo yum install -y kubelet kubeadm kubectl jq tree --disableexcludes=kubernetes
+sudo yum install -y kubelet-1.20.9-0.x86_64 kubectl-1.20.9-0.x86_64 kubeadm-1.20.9-0.x86_64 jq tree --disableexcludes=kubernetes
 sudo systemctl enable --now kubelet
 dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
 dnf install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm -y
@@ -36,6 +37,9 @@ echo "Join command copied to bucket" >> /root/status.txt
 
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 echo "CNI should be installed next - Ready to install Helm and Istio" >> /root/status.txt
+
+kubectl apply -f https://openebs.github.io/charts/openebs-operator.yaml
+
 # Helm and Istio
 #curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 #curl -L https://git.io/getLatestIstio | sh -
