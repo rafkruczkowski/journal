@@ -28,7 +28,7 @@ echo "Ready to install Kubeadm" >> /root/status.txt
 
 #Master node
 cd /root
-kubeadm init
+kubeadm init --pod-network-cidr="10.100.0.1/24"
 export KUBECONFIG=/etc/kubernetes/admin.conf
 kubeadm token create --print-join-command > /root/join.txt
 echo "Join nodes with join.txt - or next steps will hang" >> /root/status.txt
