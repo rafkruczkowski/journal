@@ -35,13 +35,14 @@ echo "Join nodes with join.txt - or next steps will hang" >> /root/status.txt
 gsutil cp /root/join.txt gs://kruczkowski-bucket
 echo "Join command copied to bucket" >> /root/status.txt
 
-kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+#kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+kubectl apply -f https://github.com/coreos/flannel/raw/master/Documentation/kube-flannel.yml
 echo "CNI should be installed next - Ready to install Helm and Istio" >> /root/status.txt
 
 kubectl apply -f https://openebs.github.io/charts/openebs-operator.yaml
 
 # Helm and Istio
-#curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 #curl -L https://git.io/getLatestIstio | sh -
 #export PATH="$PATH:/root/istio-1.10.0/bin"
 echo "export KUBECONFIG=/etc/kubernetes/admin.conf" > /root/export.txt
