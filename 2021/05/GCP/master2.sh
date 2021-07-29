@@ -26,10 +26,17 @@ systemctl start docker
 kubeadm config images pull
 echo "Ready to install Kubeadm" >> /root/status.txt
 
+gsutil cp gs://kruczkowski-bucket/kubeadm-config.yaml /root/kubeadm-config.yaml
+
 #Master node
 cd /root
+#kubeadm init --config /root/kubeadm-config.yaml --ignore-preflight-errors NumCPU 
 kubeadm init --pod-network-cidr="10.100.0.1/24"
 export KUBECONFIG=/etc/kubernetes/admin.conf
+kubectl patch node $(hostname) -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
+kubectl patch node node1 -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
+kubectl patch node node2 -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
+kubectl patch node node3 -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
 kubeadm token create --print-join-command > /root/join.txt
 echo "Join nodes with join.txt - or next steps will hang" >> /root/status.txt
 gsutil cp /root/join.txt gs://kruczkowski-bucket
