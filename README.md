@@ -19,6 +19,7 @@ Table of topics
 | CW15  | 2021/04/16 | [Adversarial search](https://github.com/rafkruczkowski/journal/blob/main/2021/04/16/) |
 | CW16  | 2021/04/20 | [Linear Regression](https://github.com/rafkruczkowski/journal/blob/main/2021/04/20/) |
 | CW16  | 2021/04/21 | [Algos and Logistic Regression](https://github.com/rafkruczkowski/journal/blob/main/2021/04/21/) |
+| CW42  | 2021/10/21 | Note added using Web version of VSCode |
 
 ## Future Topics
 ---
