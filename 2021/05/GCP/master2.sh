@@ -57,3 +57,10 @@ echo "export PATH=\"$PATH:/root/istio-1.10.0/bin\"" >> /root/export.txt
 #echo "Next to install Istio with Demo profile" >> /root/status.txt
 #istioctl install --set profile=demo -y
 #end
+
+#repatch
+sleep 60
+kubectl patch node $(hostname) -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
+kubectl patch node node1 -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
+kubectl patch node node2 -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
+kubectl patch node node3 -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
