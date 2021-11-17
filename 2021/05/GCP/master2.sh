@@ -1,5 +1,5 @@
 #GCP K8s Node bootstrap
-echo "Starting startup script" >> /root/status.txt
+echo "`date` - Starting startup script" >> /root/status.txt
 swapoff -a
 systemctl stop firewalld
 systemctl disable firewalld
@@ -24,7 +24,7 @@ dnf install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/co
 dnf install docker-ce --nobest -y
 systemctl start docker
 kubeadm config images pull
-echo "Ready to install Kubeadm" >> /root/status.txt
+echo "`date` - Ready to install Kubeadm" >> /root/status.txt
 
 gsutil cp gs://kruczkowski-bucket/kubeadm-config.yaml /root/kubeadm-config.yaml
 
@@ -38,13 +38,13 @@ kubectl patch node node1 -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
 kubectl patch node node2 -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
 kubectl patch node node3 -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
 kubeadm token create --print-join-command > /root/join.txt
-echo "Join nodes with join.txt - or next steps will hang" >> /root/status.txt
+echo "`date` - Join nodes with join.txt - or next steps will hang" >> /root/status.txt
 gsutil cp /root/join.txt gs://kruczkowski-bucket
-echo "Join command copied to bucket" >> /root/status.txt
+echo "`date` - Join command copied to bucket" >> /root/status.txt
 
 #kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 kubectl apply -f https://github.com/coreos/flannel/raw/master/Documentation/kube-flannel.yml
-echo "CNI should be installed next - Ready to install Helm and Istio" >> /root/status.txt
+echo "`date` - CNI should be installed next - Ready to install Helm and Istio" >> /root/status.txt
 
 kubectl apply -f https://openebs.github.io/charts/openebs-operator.yaml
 
@@ -64,3 +64,5 @@ kubectl patch node $(hostname) -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
 kubectl patch node node1 -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
 kubectl patch node node2 -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
 kubectl patch node node3 -p '{"spec":{"podCIDR":"10.100.0.1/24"}}'
+
+echo "`date` - Node CIDR patching done, script done cluster should be ready soon" >> /root/status.txt
